@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun FirstScreen(navigateToSecondScreen:() -> Unit) {
+fun FirstScreen(navigateToSecondScreen:(String) -> Unit) {
     val name = remember {
         mutableStateOf("")
     }
@@ -37,7 +37,7 @@ fun FirstScreen(navigateToSecondScreen:() -> Unit) {
             name.value = it
         })
         Button(onClick = {
-            navigateToSecondScreen()
+            navigateToSecondScreen(name.value)
         }) {
             Text(text = "Go to 2nd Screen")
         }
