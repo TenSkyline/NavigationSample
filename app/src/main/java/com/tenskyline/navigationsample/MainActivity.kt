@@ -47,15 +47,20 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyApp(){
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "firstscreen"){
-        composable("firstscreen"){
+    NavHost(navController = navController, startDestination = "first_screen"){
+        composable("first_screen"){
             FirstScreen() {
-                navController.navigate("secondscreen")
+                navController.navigate("second_screen")
             }
         }
-        composable("secondscreen"){
+        composable("second_screen"){
             SecondScreen() {
-                navController.navigate("firstscreen")
+                navController.navigate("third_screen")
+            }
+        }
+        composable("third_screen"){
+            ThirdScreen() {
+                navController.navigate("first_screen")
             }
         }
     }
